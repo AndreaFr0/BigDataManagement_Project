@@ -1,0 +1,259 @@
+Configurazione:
+
+1. MinIO
+
+docker run -d --name minio \
+  -p 9000:9000 -p 9001:9001 \
+  -e "MINIO_ROOT_USER=admin" \
+  -e "MINIO_ROOT_PASSWORD=admin12345" \
+  -v minio_data:/data \
+  minio/minio:RELEASE.2025-09-07T16-13-09Z server /data --console-address “:9001"
+
+Accedendo, con le credenziali appena definite, all’indirizzo http://localhost:9001 creare il bucket lakehouse.
+
+2. PostgreSQL
+
+Da riga di comando entrare in Postgres:
+docker exec -it pg_db psql -U postgres
+
+Creare il database e il catalogo:
+CREATE DATABASE bdm_prova;
+\c bdm_prova
+CREATE SCHEMA prova_catalog;
+
+3. PyIceberg
+
+Installare la libreria con il comando:
+pip install "pyiceberg[pyarrow,s3fs]" psycopg2-binary
+
+Creare il file pyiceberg.yaml in cui sono presenti le informazioni che PyIceberg usa per comunicare con il catalogo Postgres e il Lakehouse di MinIO. Salvare il file nella home (su Mac ~/.pyiceberg.yaml):
+
+catalog:
+  default:
+    type: sql
+    uri: postgresql+psycopg2://postgres:<INSERIRE_PASSWORD>@localhost:5432/bdm_prova?options=-c%20search_path%3Dprova_catalog
+    warehouse: s3://lakehouse/
+    s3.endpoint: http://localhost:9000
+    s3.access-key-id: admin
+    s3.secret-access-key: <INSERIRE_PASSWORD>
+
+4. DuckDB
+
+Installare la libreria:
+pip install duckdb -upgrade
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ispezionare un oggetto:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Configurazione delle credenziali per il client in locale. Una volta installato MinIO Client mediante lo strumento a riga di comando mc è possibile interagire con MinIO senza utilizzare l’interfaccia web:
+
+
+
+
+
+
+Carichiamo un file di prova mediante il comando mc:
+
+
+
+
+
+
+
+Verifichiamo tramite interfaccia web che il file sia stato caricato correttamente:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Iceberg
+Creazione dello schema:
+
+
+
+
+Effettuare l’append dei dati:
+
+
+
+
+
+
+
+
+Modificare lo schema con l’inserimento della colonna quantità:
+
+
+
+
+
+
+Modificare i valori delle istanze:
+
+
+
+
+
+
+
+
+
+
+Cancellazione di istanze dalla tabella:
+
+
+
+
+
+
+
+
+
+
+
+
+
+Interrogazione di una versione passata:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Esecuzione di una compaction:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Verifica della compaction tramite interfaccia web di MinIO:
+
+		(Prima) 
+
+
+
+
+
+
+
+
+		(Dopo)
+
+
+
+
+
+
+DuckDB
+Interrogare una tabella Iceberg:
+
+
+
+
+Piano di esecuzione:
+
