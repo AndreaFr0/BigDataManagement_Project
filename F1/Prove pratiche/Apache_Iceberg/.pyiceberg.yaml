@@ -1,0 +1,8 @@
+catalog:
+  default:
+    type: sql
+    uri: postgresql+psycopg2://postgres:Xakl900!@localhost:5432/bdm_prova?options=-c%20search_path%3Dprova_catalog
+    warehouse: s3://lakehouse/
+    s3.endpoint: http://localhost:9000
+    s3.access-key-id: admin
+    s3.secret-access-key: admin12345
