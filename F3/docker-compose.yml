@@ -1,0 +1,136 @@
+# Postgres + MongoDB + MinIO + client Python (PyIceberg)
+#
+# Architettura Iceberg senza servizio REST:
+#   - Postgres  = catalogo Iceberg (SqlCatalog): sa DOVE stanno i dati/metadati
+#   - MinIO     = storage S3 (bucket "warehouse"): contiene file Parquet e metadati
+#   - Python    = PyIceberg, legge il catalogo da Postgres e scrive/legge su MinIO
+#
+# Ordine di avvio:
+#   1. minio e postgres partono per primi
+#   2. iceberg-client parte dopo di loro ed esegue init/load_iceberg.py, che
+#      attende MinIO, crea il bucket "warehouse", attende il catalogo su Postgres
+#      e converte i CSV in tabelle Iceberg (Parquet su MinIO)
+#   3. a fine caricamento il container resta attivo (tail -f /dev/null)
+#
+# Avvio:  docker compose up -d     |     Log:  docker logs -f iceberg-client
+
+name: iceberg-stack
+
+networks:
+  data-net:
+    external: true
+    name: data-net
+
+volumes:
+  postgres_data:
+  mongo_data:
+  minio_data:
+
+services:
+  postgres:
+    image: postgres:17
+    platform: linux/amd64
+    container_name: pg-progetto
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: progetto_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init/00_create_catalog.sql:/docker-entrypoint-initdb.d/00_create_catalog.sql
+      - ./init/01_schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./init/02_load.sql:/docker-entrypoint-initdb.d/02_load.sql
+      - ./letture/data/letture_1M.csv:/docker-entrypoint-initdb.d/letture_1M.csv
+      - ./letture/data/letture_10M.csv:/docker-entrypoint-initdb.d/letture_10M.csv
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - data-net
+    healthcheck:
+      # -h 127.0.0.1: controlla via rete, quindi diventa "healthy" solo
+      # quando gli script di init sono finiti e il server e' davvero pronto
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U admin -d progetto_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+
+  mongo:
+    image: mongo:latest
+    platform: linux/amd64
+    container_name: mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin_password
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+      # Script che esegue l'importazione dei CSV
+      - ./init/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh
+      # CSV in una cartella temporanea interna (NON dentro docker-entrypoint-initdb.d)
+      - ./letture/data/letture_1M.csv:/tmp/letture_1M.csv
+      - ./letture/data/letture_10M.csv:/tmp/letture_10M.csv
+    networks:
+      - data-net
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  minio:
+    image: minio-custom:2025-09-07
+    platform: linux/amd64
+    pull_policy: never
+    container_name: minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: admin12345
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - data-net
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Un solo container Iceberg: crea il bucket, converte i CSV in tabelle Iceberg
+  # (Parquet su MinIO, catalogo su Postgres) e poi resta attivo
+  iceberg-client:
+    image: python:3.11.5
+    platform: linux/amd64
+    container_name: iceberg-client
+    restart: unless-stopped
+    depends_on:
+      - minio
+      - postgres
+    environment:
+      CATALOG_URI: postgresql+psycopg2://admin:postgres@postgres:5432/progetto_db?options=-csearch_path%3Diceberg_catalog
+      WAREHOUSE: s3://warehouse/
+      S3_ENDPOINT: http://minio:9000
+      S3_ACCESS_KEY: admin
+      S3_SECRET_KEY: admin12345
+      S3_REGION: us-east-1
+      DATA_DIR: /data
+      ICEBERG_NAMESPACE: iot
+      CHUNK_ROWS: "1000000"
+    volumes:
+      - ./init/load_iceberg.py:/app/load_iceberg.py:ro
+      - ./init/compact_iceberg.py:/app/compact_iceberg.py:ro
+      # Si monta la cartella (non i singoli file) cosi' Docker non crea cartelle fantasma
+      - ./letture/data:/data:ro
+    working_dir: /app
+    command: >
+      sh -c "pip install --no-cache-dir 'pyiceberg[sql-postgres,pyarrow,s3fs]==0.11.1' psycopg2-binary duckdb &&
+             python /app/load_iceberg.py && python /app/compact_iceberg.py;
+             tail -f /dev/null"
+    networks:
+      - data-net
