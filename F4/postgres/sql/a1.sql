@@ -1,0 +1,1 @@
+SELECT * FROM :t WHERE sensor_id = 'S-042' ORDER BY ts DESC LIMIT 1;
