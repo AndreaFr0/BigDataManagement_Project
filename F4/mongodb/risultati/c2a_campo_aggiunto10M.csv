@@ -1,0 +1,23 @@
+output_mongosh
+"=== C2a — Campo aggiunto al dataset 1M ===
+Collezione             : letture_1M
+Documenti totali       : 13000000
+Documenti modificati   : 13000000
+Documenti senza campo  : 0
+Tempo totale           : 98146 ms
+
+Esempio di documento aggiornato:
+{
+  _id: ObjectId('6af44c80f511a8e298b396bb'),
+  sensor_id: 'S-001',
+  ts: '2024-01-01T00:15:00Z',
+  tipo: 'qualita_aria',
+  valore: 55.48,
+  unita: 'µg/m³',
+  lat: 40.34977,
+  lon: 18.280131,
+  qualita: 1,
+  payload: '',
+  canale_radio: 'LoRaWAN'
+}
+"

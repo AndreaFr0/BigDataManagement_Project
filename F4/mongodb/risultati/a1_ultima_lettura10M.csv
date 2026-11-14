@@ -1,0 +1,17 @@
+output_mongosh
+"=== A1 — Ultima lettura S-042 ===
+[
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a28e'),
+    sensor_id: 'S-042',
+    ts: '2024-12-31T06:38:00Z',
+    tipo: 'idrometrico',
+    valore: 67.67,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 17, ""rssi_dbm"": -57, ""firmware"": ""1.3.1""}'
+  }
+]
+"

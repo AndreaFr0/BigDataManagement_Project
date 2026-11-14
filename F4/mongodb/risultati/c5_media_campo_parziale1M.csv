@@ -1,0 +1,10 @@
+output_mongosh
+"===== RISULTATO C5 =====
+Totale letture: 3979962
+Letture con batteria: 238656
+Letture senza batteria: 3741306
+Percentuale con batteria: 6.00%
+Batteria media: 53.35%
+Batteria minima: 8%
+Batteria massima: 99%
+"

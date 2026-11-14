@@ -1,0 +1,53 @@
+output_mongosh
+"=== B4 — Media gennaio vs luglio, per tipo ===
+[
+  {
+    _id: {
+      tipo: 'idrometrico',
+      mese: 1
+    },
+    media_valore: 77.36062455880871,
+    n_letture: 29749
+  },
+  {
+    _id: {
+      tipo: 'idrometrico',
+      mese: 7
+    },
+    media_valore: 42.75315133907701,
+    n_letture: 29946
+  },
+  {
+    _id: {
+      tipo: 'meteo',
+      mese: 1
+    },
+    media_valore: 2.997306922633382,
+    n_letture: 29483
+  },
+  {
+    _id: {
+      tipo: 'meteo',
+      mese: 7
+    },
+    media_valore: 33.018309573677456,
+    n_letture: 29602
+  },
+  {
+    _id: {
+      tipo: 'qualita_aria',
+      mese: 1
+    },
+    media_valore: 63.74632191994996,
+    n_letture: 25584
+  },
+  {
+    _id: {
+      tipo: 'qualita_aria',
+      mese: 7
+    },
+    media_valore: 14.764018059573138,
+    n_letture: 25582
+  }
+]
+"

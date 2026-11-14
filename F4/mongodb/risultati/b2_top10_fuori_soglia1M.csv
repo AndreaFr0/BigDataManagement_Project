@@ -1,0 +1,45 @@
+output_mongosh
+"=== B2 — Top 10 sensori per letture fuori soglia (qualita in {0,2}) ===
+[
+  {
+    _id: 'S-196',
+    n_fuori_soglia: 292
+  },
+  {
+    _id: 'S-014',
+    n_fuori_soglia: 290
+  },
+  {
+    _id: 'S-117',
+    n_fuori_soglia: 285
+  },
+  {
+    _id: 'S-034',
+    n_fuori_soglia: 285
+  },
+  {
+    _id: 'S-073',
+    n_fuori_soglia: 284
+  },
+  {
+    _id: 'S-193',
+    n_fuori_soglia: 283
+  },
+  {
+    _id: 'S-151',
+    n_fuori_soglia: 282
+  },
+  {
+    _id: 'S-194',
+    n_fuori_soglia: 281
+  },
+  {
+    _id: 'S-081',
+    n_fuori_soglia: 281
+  },
+  {
+    _id: 'S-031',
+    n_fuori_soglia: 276
+  }
+]
+"

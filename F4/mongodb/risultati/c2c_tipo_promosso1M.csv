@@ -1,0 +1,38 @@
+output_mongosh
+"=== C2c — Tipo promosso (qualita: int -> double) ===
+Collezione: letture_1M
+
+Distribuzione dei tipi PRIMA:
+[
+  {
+    _id: 'double',
+    totale: 4000000
+  }
+]
+
+Distribuzione dei tipi DOPO:
+[
+  {
+    _id: 'double',
+    totale: 4000000
+  }
+]
+
+Documenti modificati: 0
+Tempo               : 11166 ms
+
+Esempio di documento:
+{
+  _id: ObjectId('6af44c75e1b2f4919b6092c7'),
+  sensor_id: 'S-001',
+  ts: '2024-01-01T05:57:00Z',
+  tipo: 'qualita_aria',
+  valore: 50.63,
+  lat: 40.34977,
+  lon: 18.280131,
+  qualita: 1,
+  payload: '',
+  canale_radio: 'LoRaWAN',
+  unita_misura: 'µg/m³'
+}
+"

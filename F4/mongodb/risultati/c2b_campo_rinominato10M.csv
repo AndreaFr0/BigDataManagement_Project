@@ -1,0 +1,24 @@
+output_mongosh
+"=== C2b — Campo rinominato (unita -> unita_misura) ===
+Collezione             : letture_1M
+Documenti totali       : 13000000
+Documenti modificati   : 13000000
+Documenti con unita    : 0
+Documenti con unita_misura: 13000000
+Tempo                  : 116696 ms
+
+Esempio di documento aggiornato:
+{
+  _id: ObjectId('6af44c80f511a8e298b396bb'),
+  sensor_id: 'S-001',
+  ts: '2024-01-01T00:15:00Z',
+  tipo: 'qualita_aria',
+  valore: 55.48,
+  lat: 40.34977,
+  lon: 18.280131,
+  qualita: 1,
+  payload: '',
+  canale_radio: 'LoRaWAN',
+  unita_misura: 'µg/m³'
+}
+"

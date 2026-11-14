@@ -1,0 +1,57 @@
+output_mongosh
+"=== B1 — Media oraria idrometrico (ultimi 6 mesi) ===
+Bucket orari restituiti: 4399
+Prime 10 righe:
+[
+  {
+    _id: ISODate('2024-07-01T00:00:00.000Z'),
+    media_valore: 44.796216216216216,
+    n_letture: 37
+  },
+  {
+    _id: ISODate('2024-07-01T01:00:00.000Z'),
+    media_valore: 42.754615384615384,
+    n_letture: 39
+  },
+  {
+    _id: ISODate('2024-07-01T02:00:00.000Z'),
+    media_valore: 41.7921052631579,
+    n_letture: 38
+  },
+  {
+    _id: ISODate('2024-07-01T03:00:00.000Z'),
+    media_valore: 43.218809523809526,
+    n_letture: 42
+  },
+  {
+    _id: ISODate('2024-07-01T04:00:00.000Z'),
+    media_valore: 42.90145833333333,
+    n_letture: 48
+  },
+  {
+    _id: ISODate('2024-07-01T05:00:00.000Z'),
+    media_valore: 41.75958333333333,
+    n_letture: 48
+  },
+  {
+    _id: ISODate('2024-07-01T06:00:00.000Z'),
+    media_valore: 42.01692307692308,
+    n_letture: 39
+  },
+  {
+    _id: ISODate('2024-07-01T07:00:00.000Z'),
+    media_valore: 41.40057692307692,
+    n_letture: 52
+  },
+  {
+    _id: ISODate('2024-07-01T08:00:00.000Z'),
+    media_valore: 45.17857142857143,
+    n_letture: 42
+  },
+  {
+    _id: ISODate('2024-07-01T09:00:00.000Z'),
+    media_valore: 41.855714285714285,
+    n_letture: 35
+  }
+]
+"

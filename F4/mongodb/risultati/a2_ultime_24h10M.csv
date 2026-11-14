@@ -1,0 +1,249 @@
+output_mongosh
+"=== A2 — Letture S-042 nelle ultime 24h ===
+Ora di riferimento : 2024-12-31T06:43:00.000Z
+Inizio finestra     : 2024-12-30T06:43:00.000Z
+Documenti trovati   : 151
+Primi 20 risultati:
+[
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a1f9'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T07:08:00Z',
+    tipo: 'idrometrico',
+    valore: 67.53,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 56, ""rssi_dbm"": -80, ""firmware"": ""1.3.1""}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a1fa'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T07:15:00Z',
+    tipo: 'idrometrico',
+    valore: 64.5,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 78, ""rssi_dbm"": -75, ""firmware"": ""1.4.2""}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a209'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T07:21:00Z',
+    tipo: 'idrometrico',
+    valore: 53.36,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 89}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a217'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T07:34:00Z',
+    tipo: 'idrometrico',
+    valore: 55.75,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 18, ""rssi_dbm"": -61}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a218'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T07:38:00Z',
+    tipo: 'idrometrico',
+    valore: 68.23,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 15, ""rssi_dbm"": -50}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a1fd'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T07:40:00Z',
+    tipo: 'idrometrico',
+    valore: 67.8,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 15, ""rssi_dbm"": -41}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a1fe'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T07:44:00Z',
+    tipo: 'idrometrico',
+    valore: 72.19,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 43, ""rssi_dbm"": -90}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a1ff'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T08:01:00Z',
+    tipo: 'idrometrico',
+    valore: 81.48,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 56, ""rssi_dbm"": -69}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a200'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T08:03:00Z',
+    tipo: 'idrometrico',
+    valore: 70.28,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 31}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a201'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T08:44:00Z',
+    tipo: 'idrometrico',
+    valore: 59.92,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 73, ""rssi_dbm"": -80}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a202'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T08:46:00Z',
+    tipo: 'idrometrico',
+    valore: 56.59,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 12, ""rssi_dbm"": -52}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a203'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T08:55:00Z',
+    tipo: 'idrometrico',
+    valore: 73.7,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 81, ""rssi_dbm"": -44, ""firmware"": ""1.2.0""}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a204'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T08:58:00Z',
+    tipo: 'idrometrico',
+    valore: 62.59,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 2,
+    payload: '{""batteria_pct"": 57, ""rssi_dbm"": -41}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a205'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T09:01:00Z',
+    tipo: 'idrometrico',
+    valore: 66.52,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""rssi_dbm"": -60, ""firmware"": ""1.3.1""}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a206'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T09:04:00Z',
+    tipo: 'idrometrico',
+    valore: 56.47,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 44, ""rssi_dbm"": -60}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a207'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T09:05:00Z',
+    tipo: 'idrometrico',
+    valore: 80.13,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 51, ""rssi_dbm"": -85, ""firmware"": ""1.4.3""}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a208'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T09:32:00Z',
+    tipo: 'idrometrico',
+    valore: 73.9,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 77, ""rssi_dbm"": -54}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a20a'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T09:36:00Z',
+    tipo: 'idrometrico',
+    valore: 58.88,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 31, ""firmware"": ""1.2.0""}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a20c'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T09:41:00Z',
+    tipo: 'idrometrico',
+    valore: 75.19,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 95, ""rssi_dbm"": -67}'
+  },
+  {
+    _id: ObjectId('6af44c97f511a8e298d3a20b'),
+    sensor_id: 'S-042',
+    ts: '2024-12-30T09:44:00Z',
+    tipo: 'idrometrico',
+    valore: 63.02,
+    unita: 'cm',
+    lat: 40.356526,
+    lon: 18.237272,
+    qualita: 1,
+    payload: '{""batteria_pct"": 60, ""rssi_dbm"": -57}'
+  }
+]
+"
