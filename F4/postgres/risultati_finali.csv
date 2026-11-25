@@ -1,0 +1,30 @@
+prova,dettaglio,store,taglia,tempo_prima_ms,tempo_mediana_ms,nota
+Q0,,postgres,1m,616.742,505.637,righe=1
+Q0,,postgres,10m,19736.833,19865.063,righe=1
+A1,,postgres,1m,2.059,2.000,righe=1
+A1,,postgres,10m,2.195,1.918,righe=1
+A2,,postgres,1m,2.518,2.105,righe=15
+A2,,postgres,10m,2.922,2.600,righe=151
+A3,,postgres,1m,2.213,1.898,righe=1
+A3,,postgres,10m,17.964,20.086,righe=1
+B1,,postgres,1m,84.654,86.230,righe=4417
+B1,,postgres,10m,276.337,286.674,righe=4417
+B2,,postgres,1m,35.763,33.523,righe=10
+B2,,postgres,10m,249.473,239.376,righe=10
+B3,,postgres,1m,707.453,670.816,righe=12
+B3,,postgres,10m,6949.428,6974.236,righe=12
+B4,,postgres,1m,16.576,16.386,righe=3
+B4,,postgres,10m,119.313,120.762,righe=3
+C1,,postgres,10000x100,3573.733,3409.169,righe_totali=1000000
+C2,campo_aggiunto,postgres,1m,1.134,133.315,valorizzati=0/1000000
+C2,campo_rinominato,postgres,1m,0.895,2.466,unita_misura valorizzati=1000000
+C2,tipo_promosso,postgres,1m,1235.751,1369.013,tipo qualita=bigint
+C3,,postgres,-,,,"non applicabile: nessun time travel nativo, PITR non configurato [wal_level=replica, archive_mode=off]"
+C4,delete,postgres,1m,97.800,22.478,residue=0; dimensione=153 MB
+C4,vacuum_full,postgres,1m,1964.511,3490.121,dimensione dopo vacuum full=152 MB
+C5,,postgres,1m,64.805,63.183,righe=1
+C5,,postgres,10m,506.907,517.990,righe=1
+O1,,postgres,1m,,,dati 123 MB; indici 31 MB; totale 154 MB
+O1,,postgres,10m,,,dati 1229 MB; indici 295 MB; totale 1525 MB
+O3,,postgres,1m,,,btree 30 MB; brin 288 kB; rapporto 108x
+O3,,postgres,10m,,,btree 295 MB; brin 288 kB; rapporto 1048x
