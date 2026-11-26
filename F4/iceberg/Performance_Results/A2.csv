@@ -1,0 +1,5 @@
+query,﻿dataset,misura,tempo_totale_secondi
+A2,1M,prima_esecuzione,0.236337
+A2,1M,mediana_esecuzioni_successive,0.149722
+A2,10M,prima_esecuzione,0.164042
+A2,10M,mediana_esecuzioni_successive,0.156753
