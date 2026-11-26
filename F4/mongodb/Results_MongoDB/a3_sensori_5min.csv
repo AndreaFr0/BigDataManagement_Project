@@ -1,0 +1,3 @@
+dataset,misura,tempo_totale_secondi
+MongoDB,prima_esecuzione,1.162589
+MongoDB,mediana_esecuzioni_successive,1.246840
