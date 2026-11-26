@@ -1,0 +1,3 @@
+﻿dataset,tabella_iceberg,tabella_openmetadata,numero_campi_iceberg,numero_campi_openmetadata,differenza_campi,corrispondenza_campi,stato_openmetadata,tempo_iceberg_secondi,tempo_openmetadata_secondi,campi_iceberg,campi_openmetadata,errore_openmetadata
+1M,benchmark.letture_1m,iceberg.default.benchmark.letture_1m,9,9,0,True,OK,0.006097,0.293101,"sensor_id, ts, tipo, valore, unita, lat, lon, qualita, payload","sensor_id, ts, tipo, valore, unita, lat, lon, qualita, payload",
+10M,benchmark.letture_10m,iceberg.default.benchmark.letture_10m,9,9,0,True,OK,0.005332,0.017539,"sensor_id, ts, tipo, valore, unita, lat, lon, qualita, payload","sensor_id, ts, tipo, valore, unita, lat, lon, qualita, payload",

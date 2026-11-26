@@ -1,0 +1,3 @@
+﻿dataset,bucket,prefix,numero_oggetti,byte,MiB,tempo_secondi
+1M,warehouse,benchmark/letture_1M/,1247,146944818,140.137,0.086671
+10M,warehouse,benchmark/letture_10M/,1295,541904860,516.801,0.089153
